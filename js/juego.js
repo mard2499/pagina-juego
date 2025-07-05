@@ -30,3 +30,16 @@ function actualizarJuego() {
 
 
 }
+
+function capitalizar(texto) {
+  return texto.charAt(0).toUpperCase() + texto.slice(1);
+}
+
+function obtenerIconoRol(rol) {
+  const iconos = {
+    agricultores: "🌾",
+    leñadores: "🌲",
+    mineros: "⛏️"
+  };
+  return iconos[rol] || "👷";
+}

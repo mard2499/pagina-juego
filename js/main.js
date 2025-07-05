@@ -13,20 +13,31 @@ setInterval(actualizarJuego, 1000);
 const infoCaja = document.getElementById("info-recurso");
 
   // revisa donde esta el cursor
-document.querySelectorAll(".recurso").forEach(recurso => {
-  recurso.addEventListener("click", () => {
-    const tipo = recurso.dataset.tipo;
+  document.querySelectorAll(".recurso").forEach(recurso => {
+    recurso.addEventListener("click", () => {
+      const tipo = recurso.dataset.tipo;
 
-    // 🔄 Si ya está seleccionado, lo deselecciona
-    if (recursoSeleccionado === tipo) {
-      recursoSeleccionado = null;
-      document.getElementById("info-recurso").style.display = "none";
-    } else {
-      recursoSeleccionado = tipo;
-      mostrarInfoRecurso(tipo);
-    }
+      // 👥 Si es poblacion, abrir panel de roles
+      if (tipo === "poblacion") {
+        const panel = document.getElementById("panel-roles");
+        panel.style.display = panel.style.display === "none" ? "block" : "none";
+        actualizarPanelRoles();
+        return; // ⛔ Salimos aquí, no seguimos con mostrarInfoRecurso
+      }
+
+      // Para los demás recursos, comportamiento normal
+      if (recursoSeleccionado === tipo) {
+        recursoSeleccionado = null;
+        document.getElementById("info-recurso").style.display = "none";
+      } else {
+        recursoSeleccionado = tipo;
+        mostrarInfoRecurso(tipo);
+      }
+    });
   });
-});
+
+
+
 
 // Muestra informacion de recurso
 function mostrarInfoRecurso(tipo) {
@@ -42,4 +53,31 @@ function mostrarInfoRecurso(tipo) {
   `;
   document.getElementById("info-recurso").style.display = "block";
 }
+
+
+
+
+// Muestra roles
+
+roles.libres = Math.floor(recursos.poblacion.cantidad);
+actualizarPanelRoles(); 
+
+function actualizarPanelRoles() {
+  const panel = document.getElementById("panel-roles");
+  panel.innerHTML = `<p>👤 Ciudadanos libres: <strong>${roles.libres}</strong></p>`;
+
+  // Recorremos las claves de roles, excepto 'libres'
+  Object.keys(roles).forEach(rol => {
+    if (rol !== 'libres') {
+      panel.innerHTML += `
+        <p>
+          ${obtenerIconoRol(rol)} ${capitalizar(rol)}: <strong>${roles[rol]}</strong>
+          <button onclick="asignarRol('${rol}')">[+]</button>
+        </p>
+      `;
+    }
+  });
+}
+
+
 

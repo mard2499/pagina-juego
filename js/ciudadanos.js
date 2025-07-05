@@ -1,9 +1,8 @@
-let ciudadanos = [];
-
 function crearCiudadanos() {
+  ciudadanos = []; // Limpiar el array global, no volver a declarar
+
   const contenedor = document.getElementById("ciudadanos");
   contenedor.innerHTML = "";
-  ciudadanos = [];
 
   const total = Math.floor(recursos.poblacion.cantidad);
 
@@ -19,9 +18,15 @@ function crearCiudadanos() {
 
     contenedor.appendChild(div);
 
-    ciudadanos.push({ elemento: div });
+    // Aquí podrías agregar más propiedades si quieres, como id o rol
+    ciudadanos.push({
+      elemento: div,
+      id: i,
+      rol: "libre"
+    });
   }
 }
+
 
 function moverCiudadanos() {
   ciudadanos.forEach(c => {
