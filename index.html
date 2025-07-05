@@ -9,11 +9,39 @@
 
 <body>
   <h1>Supervivencia Imperial</h1>
+
+    <div id="hud-recursos">
+    <div class="recurso" data-tipo="comida">
+      <img src="icons/comida.png" alt="Comida">
+      <span id="valor-comida">10</span>
+    </div>
+    <div class="recurso" data-tipo="madera">
+      <img src="icons/madera.png" alt="Madera">
+      <span id="valor-madera">0</span>
+    </div>
+    <div class="recurso" data-tipo="piedra">
+      <img src="icons/piedra.png" alt="Piedra">
+      <span id="valor-piedra">0</span>
+    </div>
+        <div class="recurso" data-tipo="hierro">
+      <img src="icons/hierro.png" alt="hierro">
+      <span id="valor-hierro">0</span>
+    </div>
+    <div class="recurso" data-tipo="oro">
+      <img src="icons/oro.png" alt="Oro">
+      <span id="valor-oro">0</span>
+    </div>
+    <div class="recurso" data-tipo="poblacion">
+      <img src="icons/poblacion.png" alt="Población">
+      <span id="valor-poblacion">5</span>
+    </div>
+  </div>
+
+  <!-- Aquí irá la caja de info -->
+  <div id="info-recurso"></div>
+
   <div id="juego">
-    <p>Día <span id="dia">1</span></p>
-    <p>Comida: <span id="comida">10</span></p>
-    <p>Población: <span id="poblacion">5</span></p>
-    <button onclick="pasarDia()">Pasar al siguiente día</button>
+
     <div id="ciudadanos"></div>
   </div>
   <script src="js/utilidades.js"></script>
