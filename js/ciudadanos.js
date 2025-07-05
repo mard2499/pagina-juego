@@ -5,16 +5,20 @@ function crearCiudadanos() {
   contenedor.innerHTML = "";
   ciudadanos = [];
 
-  for (let i = 0; i < poblacion; i++) {
+  const total = Math.floor(recursos.poblacion.cantidad);
+
+  for (let i = 0; i < total; i++) {
     const div = document.createElement("div");
     div.classList.add("ciudadano");
 
+    // Posición aleatoria
     const x = Math.random() * 280;
     const y = Math.random() * 280;
     div.style.left = x + "px";
     div.style.top = y + "px";
 
     contenedor.appendChild(div);
+
     ciudadanos.push({ elemento: div });
   }
 }
