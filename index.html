@@ -46,14 +46,18 @@
 
   <!-- Aquí irá la caja de info -->
   <div id="info-recurso" style="display: none;"></div>
-
+     
   <!-- Juego -->
   <div id="juego">
-     
-    <!-- ciudadanos div -->
+
+     <!-- ciudadanos div -->
     <div id="ciudadanos"></div>
   </div>
 
+    <div style="position: fixed; bottom: 20px; left: 20px; z-index: 1000; background: white; padding: 10px; border-radius: 10px;">
+    <button onclick="sembrarParcela()">🌱 Sembrar manual</button>
+    <button onclick="cosecharParcela()">🌾 Cosechar manual</button>
+    </div>
 
     <!-- Conexion con js -->
     <!-- DATOS -->
@@ -62,6 +66,8 @@
     <script src="js/datos/cofig.js"></script>
     <!-- JUEGO Y LÓGICA -->
     <script src="js/juego/ciudadanos.js"></script>
+    <script src="js/juego/laborCultivo.js"></script>
+    <script src="js/juego/mapaZonas.js"></script>
     <script src="js/ui/panelRoles.js"></script>
     <script src="js/ui/hud.js"></script>
 

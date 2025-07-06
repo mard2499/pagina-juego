@@ -126,3 +126,15 @@ h1 {
   margin: 0.5rem 0;
   font-size: 14px;
 }
+
+
+.parcela-cultivo {
+  width: 60px;
+  height: 60px;
+  background-color: #7a9e7e;
+  border: 2px solid #4c6d4c;
+  border-radius: 4px;
+  position: absolute;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}

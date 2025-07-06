@@ -29,9 +29,13 @@ function crearCiudadanos() {
 
 
 function moverCiudadanos() {
+  const contenedor = document.getElementById("ciudadanos"); // 
+  const ancho = contenedor.offsetWidth - 20;
+  const alto = contenedor.offsetHeight - 20;
+
   ciudadanos.forEach(c => {
-    const x = Math.random() * 280;
-    const y = Math.random() * 280;
+    const x = Math.random() * ancho;
+    const y = Math.random() * alto;
     c.elemento.style.left = x + "px";
     c.elemento.style.top = y + "px";
   });

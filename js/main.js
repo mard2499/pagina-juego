@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   actualizarPanelRoles();
   crearCiudadanos();          // Ciudadanos
   iniciarMotorJuego();        // Motor
+  generarZonasCultivo();
 });
 
 // Bucle del juego: se actualiza cada segundo
