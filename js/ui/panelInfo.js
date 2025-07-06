@@ -1,9 +1,3 @@
-// js/ui/panelInfo.js
-
-/**
- * Muestra un panel de información detallada sobre el recurso seleccionado.
- * Incluye producción, consumo y balance actual.
- */
 function mostrarInfoRecurso(tipo) {
   const r = recursos[tipo];
   const panel = document.getElementById("info-recurso");
@@ -18,5 +12,11 @@ function mostrarInfoRecurso(tipo) {
     📊 Balance: ${balance >= 0 ? '+' + balance : balance}/seg
   `;
 
+  // Posicionar el panel al lado del recurso
+  const recursoElemento = document.querySelector(`.recurso[data-tipo="${tipo}"]`);
+  const rect = recursoElemento.getBoundingClientRect();
+
+  panel.style.left = `${rect.left}px`;
+  panel.style.top = `${rect.bottom + 5}px`;
   panel.style.display = "block";
 }

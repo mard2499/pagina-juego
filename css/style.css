@@ -1,31 +1,87 @@
+/* === GENERAL === */
 body {
-  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #111;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === TÍTULO === */
+h1 {
   text-align: center;
-  background-color: #f0f0f0;
-  padding: 30px;
+  margin: 10px 0 5px;
+  font-size: 24px;
+  color: #f5f5f5;
 }
 
-#juego {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  display: inline-block;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+/* === HUD FIJO === */
+#hud-recursos {
+  position: fixed;
+  top: 40px; /* debajo del título */
+  left: 0;
+  width: 100%;
+  background: rgba(34, 34, 34, 0.95);
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 8px 0;
+  z-index: 10;
+  border-bottom: 1px solid #444;
 }
 
-
-#ciudadanos {
-  width: 300px;
-  height: 300px;
-  margin: 20px auto;
+.recurso {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
   position: relative;
-  background-color: #e0e0e0;
-  border: 2px solid #888;
-  border-radius: 10px;
+  color: white;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.recurso:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+}
+
+.recurso img {
+  width: 24px;
+  height: 24px;
+}
+
+/* === ÁREA DE JUEGO === */
+#juego {
+  position: absolute;
+  top: 100px; /* Título (40px) + HUD (60px) */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #222;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* === CONTENEDOR DE CIUDADANOS === */
+#ciudadanos {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  background-color: #e8ebec58; /* tono oscuro para que contraste */
+  border: none;
+  border-radius: 0;
   overflow: hidden;
 }
 
-/* Estilo de los ciudadanos */
+/* === CIUDADANOS === */
 .ciudadano {
   width: 20px;
   height: 20px;
@@ -35,61 +91,38 @@ body {
   transition: all 1s ease;
 }
 
-#hud-recursos {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  background-color: #f5f5f5;
-  padding: 10px;
-  border-bottom: 2px solid #ccc;
-}
-
-.recurso {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 4px 8px;
-  border-radius: 8px;
-  transition: background-color 0.3s;
-}
-
-.recurso:hover {
-  background-color: #e0e0e0;
-}
-
-.recurso img {
-  width: 24px;
-  height: 24px;
-}
-
+/* === PANEL DE INFORMACIÓN DE RECURSO === */
 #info-recurso {
-  text-align: center;
-  margin-top: 10px;
-  font-size: 16px;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
   padding: 10px;
-  border: 1px dashed #aaa;
-  width: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #fff8dc;
+  border-radius: 8px;
+  z-index: 100;
+  min-width: 150px;
   display: none;
+  box-shadow: 0 0 10px black;
+  font-size: 14px;
+  pointer-events: none;
 }
 
-
+/* === PANEL DE ROLES === */
 #panel-roles {
-  background: #222;
+  position: absolute;
+  top: 110px;
+  right: 20px;
+  background: #333;
   color: white;
   padding: 1rem;
-  position: absolute;
-  top: 50px;
-  right: 20px;
   border-radius: 10px;
-  width: 200px;
+  width: 220px;
+  z-index: 50;
+  box-shadow: 0 0 10px #000;
 }
 
 .rol {
   display: flex;
   justify-content: space-between;
   margin: 0.5rem 0;
+  font-size: 14px;
 }
