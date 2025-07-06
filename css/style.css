@@ -75,3 +75,21 @@ body {
   background-color: #fff8dc;
   display: none;
 }
+
+
+#panel-roles {
+  background: #222;
+  color: white;
+  padding: 1rem;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  border-radius: 10px;
+  width: 200px;
+}
+
+.rol {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
